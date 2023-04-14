@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { GET_POKEMONS_QUERY } from '@component/graphql/queries';
+import { GET_POKEMONS_QUERY } from '@component/graphql/AllPokemonQuery';
 import React from 'react'
 import styles from './pokemon.module.css'
 const Pokemon = () => {
@@ -8,16 +8,21 @@ const Pokemon = () => {
     if (loading)
         return <p>Loading.....</p>
     if (error) <p> 'Error... ${error}'</p>
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className={styles.allPokemon}>
             {data.pokemons.map((pokemon) => (
-                <div key={pokemon.id}>
-                    <img src={pokemon.image} alt={pokemon.name} />
-                    <h3>{pokemon.number}</h3>
+                <div className={styles.pokemonCard}key={pokemon.id}>
+                    <img className={styles.pokemonImg}src={pokemon.image} alt={pokemon.name} height={'60%'} width={'100%'} />
+                   <div className={styles.pokemonInfo}>
+                    <h5>
+                        <span>#</span>
+                        {pokemon.number}</h5>
                     <h2>{pokemon.name}</h2>
-                    <p>Type: {pokemon.types.join(', ')}</p>
+                    
+                    <p>{pokemon.types.join(' ')}</p>
+                   </div>
                     {/* <p>Max CP: {pokemon.maxCP}</p> */}
                 </div>
             ))}
