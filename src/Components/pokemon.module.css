@@ -1,4 +1,4 @@
-
+/* 
 .allPokemon {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -20,7 +20,7 @@ cursor: pointer;
   text-align: center;
   border: 1px soild black;
   font-family: 'Chivo Mono', monospace;
-}
+} */
 
 
 
