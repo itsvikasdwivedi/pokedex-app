@@ -1,5 +1,6 @@
 import '@component/styles/globals.css'
 import { ApolloProvider,InMemoryCache, ApolloClient } from '@apollo/client'
+import '../styles/Home.module.css'
 
 const client = new ApolloClient({
   uri: 'https://graphql-pokemon2.vercel.app/',

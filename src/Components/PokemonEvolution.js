@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { POKEMON_EVOLUTION_QUERY } from '@component/graphql/PokemonEvolutionQuery';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
+import Loader from './Loader';
 
 const PokemonEvolution = (props) => {
     console.log(props)
@@ -11,9 +12,9 @@ const PokemonEvolution = (props) => {
         variables: { name: router.query.pokemon }
     })
     if (loading)
-        return <p>Loading.....</p>
+        return<Loader/>
     if (error) <p> 'Error... ${error}'</p>
-    console.log(data, "gaddari na karbeyyy");
+    // console.log(data, "data visible");
 
     return (
         <div>

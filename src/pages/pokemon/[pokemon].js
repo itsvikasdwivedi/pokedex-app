@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { POKEMON_DETAILS_QUERY } from '@component/graphql/PokemonDetailsQuery';
 import { useRouter } from 'next/router'
 import PokemonEvolution from '@component/Components/PokemonEvolution';
+import Loader from '@component/Components/Loader';
 
 const PokemonDetails = () => {
   const router = useRouter();
@@ -13,7 +14,7 @@ const PokemonDetails = () => {
   })
 
   if (loading)
-    return <p>Loading.....</p>
+    return <Loader/>
   if (error) <p> 'Error... ${error}'</p>
   console.log(data);
 
@@ -25,12 +26,12 @@ const PokemonDetails = () => {
         </h1>
       </div>
 
-      <div className=' py-10 px-20 flex flex-row gap-10 2xl:flex-col'>
+      <div className='pl-6 flex flex-row gap-10 max-sm:flex-col p-0 xl:pl-20'>
         <div className='border-2  rounded'>
-          <img src={data.pokemon.image} className='p-20'></img>
+          <img src={data.pokemon.image} className='p-10'></img>
         </div>
 
-        <div className='border-2 rounded w-2/5 p-5' >
+        <div className='border-2 rounded p-5 max-w-md' >
           <div className=' rounded flex gap-20 bg-[#30a7d7] p-10'>
             <div>
               <ul>
