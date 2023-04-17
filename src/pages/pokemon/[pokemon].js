@@ -5,7 +5,7 @@ import PokemonEvolution from '@component/Components/PokemonEvolution';
 
 const PokemonDetails = () => {
   const router = useRouter();
-  
+
   // console.log(router.query.pokemon,"Iam Identification");
 
   const { loading, error, data } = useQuery(POKEMON_DETAILS_QUERY, {
@@ -21,19 +21,17 @@ const PokemonDetails = () => {
     <div>
       <div className='font-mono text-2xl m-2'>
         <h1 className='text-center'>{data.pokemon.name}
-          <span>{data.pokemon.number}</span>
+          <span className='text-gray-400'>{" #"}{data.pokemon.number}</span>
         </h1>
-
       </div>
 
-      <div className=' p-5 flex flex-row gap-10 2xl:flex-col'>
-        <div className='border-2 border-indigo-600 rounded'>
+      <div className=' py-10 px-20 flex flex-row gap-10 2xl:flex-col'>
+        <div className='border-2  rounded'>
           <img src={data.pokemon.image} className='p-20'></img>
         </div>
 
-        <div className='border-2 border-indigo-600 rounded w-2/5 p-5' >
-
-          <div className='border-2 border-indigo-600 rounded flex gap-20 bg-[#30a7d7] p-10'>
+        <div className='border-2 rounded w-2/5 p-5' >
+          <div className=' rounded flex gap-20 bg-[#30a7d7] p-10'>
             <div>
               <ul>
                 <li>
@@ -71,24 +69,41 @@ const PokemonDetails = () => {
           </div>
 
           <div>
-            <h3>Type</h3>
 
+            <h3>Type</h3>
             <div className='flex gap-x-5'>
               {data.pokemon.types.map((type) => (
-                <p className='p-1 max  bg-[#30a7d7]'>{type}</p>
+                <p className='p-1 max text-white rounded-md bg-[#30a7d7]'>{type}</p>
               ))}
             </div>
-          </div>
-          <div>
-            <h3>Weakness</h3>
-            <p>{data.pokemon.weaknesses.join(' ')}</p>
-          </div>
-          <div>
-            <h3>Resistance</h3>
-            <p>{data.pokemon.resistant.join(' ')}</p>
+
           </div>
 
-          <PokemonEvolution props={data.pokemon.image}/>
+          <div>
+            <h3>Weakness</h3>
+            <div className='flex gap-x-5'>
+              {data && data.pokemon.weaknesses
+                .map((weakness) =>
+                  <ul >
+                    <li className='p-1 max text-white rounded-md bg-[#30a7d7]'>{weakness}</li>
+                  </ul>
+                )}
+            </div>
+          </div>
+
+          <div>
+            <h3>Resistance</h3>
+            <div className='flex gap-x-5'>
+            {data && data.pokemon.resistant
+                .map((resis) =>
+                  <ul >
+                    <li className='p-1 max text-white rounded-md bg-[#30a7d7]'>{resis}</li>
+                  </ul>
+                )}
+            </div>
+          </div>
+
+          <PokemonEvolution props={data.pokemon.image} />
         </div>
       </div>
     </div>

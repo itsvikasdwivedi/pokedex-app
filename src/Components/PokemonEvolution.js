@@ -9,17 +9,17 @@ const PokemonEvolution = (props) => {
     const [showModal, setShowModal] = useState(false);
     const { loading, error, data } = useQuery(POKEMON_EVOLUTION_QUERY, {
         variables: { name: router.query.pokemon }
-      })
-      if (loading)
-      return <p>Loading.....</p>
+    })
+    if (loading)
+        return <p>Loading.....</p>
     if (error) <p> 'Error... ${error}'</p>
-    console.log(data,"gaddari na karbeyyy");
+    console.log(data, "gaddari na karbeyyy");
 
     return (
         <div>
             {/* Modal Starts from here */}
             <button
-                className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="bg-[#ee6b2f] text-white active:bg-[#ee6b1f] ml-20 mt-3 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={() => setShowModal(true)}
             >
@@ -35,7 +35,7 @@ const PokemonEvolution = (props) => {
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                     <h3 className="text-3xl font-semibold">
-                                       Pokemon's Evolution
+                                        Pokemon's Evolution
                                     </h3>
                                     <button
                                         className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -47,32 +47,32 @@ const PokemonEvolution = (props) => {
                                     </button>
                                 </div>
                                 {/*body*/}
-                                <div className="relative p-6 flex">
-                                    {data.pokemon.evolutions.map((evol)=>(
-                                        <div>
-                                        <img src={evol.image}/>
-                                        <span>...</span>
+                                <div className=" p-8 flex gap-5 ">
+                                    {data && data?.pokemon?.evolutions?.map((evol) => (
+                                        <>
+                                            <div className='border-2 '>
+                                                <img src={evol.image} height={200} width={200} alt={evol.image} />
                                             </div>
+                                            <div>
+                                                <span>➡️</span>
+                                            </div>
+                                        </>
                                     ))}
-                                    <img src={props.props}/>
+                                    <div className='border-2 '>
+                                        <img src={props.props} height={200} width={200} alt={props.props} />
+                                    </div>
 
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                                     <button
-                                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        className="text-orange-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"
                                         onClick={() => setShowModal(false)}
                                     >
                                         Close
                                     </button>
-                                    <button
-                                        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button"
-                                        onClick={() => setShowModal(false)}
-                                    >
-                                        Save Changes
-                                    </button>
+
                                 </div>
                             </div>
                         </div>

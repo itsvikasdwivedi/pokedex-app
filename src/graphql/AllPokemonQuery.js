@@ -1,8 +1,8 @@
 const { gql } = require("@apollo/client");
 
 export const GET_POKEMONS_QUERY =gql `
-query {
-  pokemons(first:20){
+query pokemons($first: Int!){
+  pokemons(first: $first){
     id
     number
     name
