@@ -1,4 +1,4 @@
-import Image from 'next/image'
+
 import Link from 'next/link'
 import React from 'react'
 export function Navbar() {
@@ -8,12 +8,7 @@ export function Navbar() {
         <div class="flex items-center flex-shrink-0 text-white mr-6">
 
           <Link href='/'>
-            <Image
-              alt="logo"
-              width={100}
-              height={50}
-              src="/pokemon.png"
-            />
+           
             <span class="font-semibold text-xl tracking-tight">Pokemon App</span>
           </Link>
         </div>
