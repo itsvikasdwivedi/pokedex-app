@@ -20,7 +20,7 @@ const PokemonEvolution = (props) => {
         <div>
             {/* Modal Starts from here */}
             <button
-                className="bg-[#ee6b2f] text-white active:bg-[#ee6b1f] ml-20 mt-3 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className="bg-[#ee6b2f] text-white active:bg-[#ee6b1f] ml-20 mt-4 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 max-[376px]:p-2 max-[376px]:m-5"
                 type="button"
                 onClick={() => setShowModal(true)}
             >
@@ -29,7 +29,7 @@ const PokemonEvolution = (props) => {
             {showModal ? (
                 <>
                     <div
-                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        className="justify-center items-center flex overflow-x-auto overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
                             {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -51,10 +51,10 @@ const PokemonEvolution = (props) => {
                                 <div className=" p-8 flex gap-5 ">
                                     {data && data?.pokemon?.evolutions?.map((evol) => (
                                         <>
-                                            <div className='border-2 '>
+                                            <div className='border-2 flex justify-center'>
                                                 <img src={evol.image} height={200} width={200} alt={evol.image} />
                                             </div>
-                                            <div>
+                                            <div className='md:mt-[100px]'>
                                                 <span>➡️</span>
                                             </div>
                                         </>
