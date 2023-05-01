@@ -1,6 +1,6 @@
 const { gql } = require("@apollo/client");
 
-export const GET_POKEMONS_QUERY =gql `
+export const GET_POKEMONS_QUERY = gql`
 query pokemons($first: Int!){
   pokemons(first: $first){
     id

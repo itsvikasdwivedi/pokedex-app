@@ -4,7 +4,6 @@ import { GET_POKEMONS_QUERY } from '@component/graphql/AllPokemonQuery';
 import Link from 'next/link';
 import Loader from './Loader';
 
-
 export const Pokemon = () => {
 
     const [pokeData, setPokeData] = useState(20);
