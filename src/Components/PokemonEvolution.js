@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import Loader from './Loader';
 
-const PokemonEvolution = (props) => {
-    console.log(props)
+const PokemonEvolution = () => {
     const router = useRouter();
     const [showModal, setShowModal] = useState(false);
     const { loading, error, data } = useQuery(POKEMON_EVOLUTION_QUERY, {
@@ -14,7 +13,7 @@ const PokemonEvolution = (props) => {
     if (loading)
         return<Loader/>
     if (error) <p> 'Error... ${error}'</p>
-    // console.log(data, "data visible");
+    console.log(data, "data visible");
 
     return (
         <div>
